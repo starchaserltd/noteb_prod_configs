@@ -1,1 +1,3 @@
-These are the Linux config files for the MariaDB Search Server which uses in-memory tables.
+These are the Linux config files for the Mariadb Search Server, which uses in-memory tables.
+
+For optimal results and to avoid memory fragmentation, the Mariadb server must be configured to use https://github.com/google/tcmalloc, ideally compiled from the source on the target machine.
