@@ -1,0 +1,1 @@
+These are the Linux config files for the MariaDB Search Server which uses in-memory tables.
