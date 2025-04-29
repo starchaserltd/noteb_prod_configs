@@ -1,0 +1,96 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+server_id=10
+log-error=/tmp/mariadb.log
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+innodb_buffer_pool_size=1G
+innodb_log_file_size=50M
+max_heap_table_size=5G
+event_scheduler=ON
+group_concat_max_len=10248
+expire_logs_days=20
+
+log-bin=mysql-bin
+binlog-format=mixed
+relay_log=notebro_slave
+relay_log_purge=1
+
+#ignore rules are ignored when do rules are present
+#replicate_ignore_db=stch_retail_data
+#replicate_ignore_db=notebro_temp
+#replicate_ignore_db=notebro_audit
+
+replicate_do_db=notebro_db
+replicate_do_db=notebro_buy
+replicate_do_db=notebro_site
+replicate_do_db=notebro_arch
+
+replicate_wild_ignore_table=notebro_adm.%
+replicate_wild_ignore_table=notebro_audit.%
+replicate_wild_ignore_table=notebro_prices.%
+replicate_wild_ignore_table=stch_retail_data.%
+replicate_wild_ignore_table=stch_retail_data_arch.%
+replicate_wild_ignore_table=stch_hr.%
+replicate_wild_ignore_table=stch_laptop_price.%
+replicate_wild_ignore_table=stch_retail_data_arch.%
+replicate_wild_ignore_table=stch_retail_data.%
+replicate_wild_ignore_table=notebro_wp.%
+replicate_wild_ignore_table=notebro_test.%
+replicate_wild_ignore_table=notebro_test.%
+replicate_wild_ignore_table=notebro_rate.%
+replicate_wild_ignore_table=notebro_temp.%
+replicate_wild_ignore_table=notebro_buy.BACKUP%
+replicate_wild_ignore_table=notebro_site.affil%
+replicate_wild_ignore_table=notebro_site.nomen
+replicate_wild_ignore_table=notebro_site.exchrate
+
+
+#replicate_wild_ignore_table=notebro_test.%
+
+#replicate_ignore_table=notebro_site.affil_choice
+#replicate_do_table=notebro_site.brands
+
+
+
+#
+# * Galera-related settings
+#
+[galera]
+# Mandatory settings
+#wsrep_on=ON
+#wsrep_provider=
+#wsrep_cluster_address=
+#binlog_format=row
+#default_storage_engine=InnoDB
+#innodb_autoinc_lock_mode=2
+#
+# Allow server to accept connections on all interfaces.
+#
+#bind-address=0.0.0.0
+#
+# Optional setting
+#wsrep_slave_threads=1
+#innodb_flush_log_at_trx_commit=0
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.6 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.11]
+
