@@ -1,0 +1,3 @@
+These are the Linux config files for the Mariadb Main Server, which uses standard tables and databases.
+
+For optimal operations, the Mariadb server should be configured to use https://github.com/google/tcmalloc, ideally compiled from the source on the target machine.
