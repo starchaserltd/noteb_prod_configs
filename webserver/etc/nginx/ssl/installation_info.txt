@@ -1,0 +1,5 @@
+https://gist.github.com/bradmontgomery/6487319
+
+to install: cat crt + ca > to new crt
+put csr from the new crt in the same folder
+copy old key file and put in the same folder
