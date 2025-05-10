@@ -1,1 +1,1 @@
-
+No scheduled events are enabled in the DB server.
