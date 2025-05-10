@@ -1,1 +1,2 @@
 
+Reset_api event needs to be enabled to run everyday on notebro_site DB
